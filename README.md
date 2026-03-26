@@ -4,13 +4,8 @@
 
 Follow these steps to clone and run the project locally. You are encouraged to explore and modify the code freely.
 
-### 1. Clone the Repository
 
-```bash
-git clone <https://github.com/lj-torbs/fresh-laravel-app.git>
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 
 Install PHP and JavaScript dependencies:
 
@@ -19,7 +14,7 @@ composer install
 npm install
 ```
 
-### 3. Setup Environment File
+### 2. Setup Environment File
 
 Copy the example environment file:
 
@@ -29,25 +24,25 @@ cp .env.example .env
 
 Then open `.env` and configure your database and other settings if needed.
 
-### 4. Generate Application Key
+### 3. Generate Application Key
 
 ```bash
 php artisan key:generate
 ```
 
-### 5. Run Migrations (if applicable)
+### 4. Run Migrations (if applicable)
 
 ```bash
 php artisan migrate
 ```
 
-### 6. Build Frontend Assets
+### 5. Build Frontend Assets
 
 ```bash
 npm run dev
 ```
 
-### 7. Run the Application
+### 6. Run the Application
 
 ```bash
 php artisan serve
@@ -59,6 +54,113 @@ Open your browser and go to:
 http://127.0.0.1:8000
 ```
 
+---
+
+## Activity 1: Simple Navigation
+
+Your task is to build a very simple navigation system using Laravel.
+
+### Objective
+
+Create a navbar with three links:
+
+* Home
+* About
+* Contact
+* Services
+* Showcases
+* Blog
+
+Each link should display a simple message when clicked.
+
+### Expected Output
+
+* Home → "Welcome to homepage"
+* About → "About us section"
+* Contact → "Contact page"
+* Services → "Services page"
+* Showcases → "Showcases page"
+* Blog → "Blog page"
+
+### Steps
+
+1. Create a navbar component inside:
+
+```
+resources/views/components/navbar.blade.php
+```
+
+Add:
+
+```blade
+<nav>
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/contact">Contact</a> |
+    <a href="/services">Services</a> |
+    <a href="/showcases">Showcases</a> |
+    <a href="/blog">Blog</a> 
+</nav>
+<hr>
+```
+
+2. Use the navbar in your layout:
+
+```blade
+<x-navbar />
+{{ $slot }}
+```
+
+3. Make sure your routes are defined in `routes/web.php`:
+
+```php
+Route::get('/', function () {
+    return view('welcome');
+}); or Route::view('/', 'welcome');
+
+##both routes above works but view works only for static webpages.
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+
+...
+```
+
+4. Update each page:
+
+**welcome.blade.php**
+
+```blade
+<x-layout>
+    <h1>Welcome to homepage</h1>
+</x-layout>
+```
+
+**about.blade.php**
+
+```blade
+<x-layout>
+    <h1>About us section</h1>
+</x-layout>
+```
+
+**contact.blade.php**
+
+```blade
+<x-layout>
+    <h1>Contact page</h1>
+</x-layout>
+```
+
+```
+...
+```
 ---
 
 ## Notes for Students
