@@ -259,6 +259,81 @@ Answer the following:
 3. You may install readme-preview vscode extension so you may see the preview of the markdown file.
 4. Have fun this Holy Work.
 ---
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# Activity 3: User Registration (Database CRUD)
+
+## Objective
+
+Transition from **session storage** to **database storage** and understand how CRUD works using **routes and Blade only**.
+
+---
+
+## Tasks
+
+---
+
+### 1. Update the Migration
+
+Locate the users migration file and:
+
+* Add fields:
+
+  * first name
+  * last name
+  * middle name
+  * nickname
+  * email (should be unique)
+  * age
+  * address
+  * contact number
+
+Run migration after editing.
+
+### 2. Prepare the Model
+
+### 3. Create the Form
+Create a separate Blade view for user input, name it user_registration.blade.php
+
+### 4. Store Data 
+### 5. Display Data
+
+Show all users in a table.
+### 6. Delete Function
+
+Allow users to be removed.
+
+### 7. Update Function
+
+Enable editing of user data.
+
+
+## Tips
+
+* Focus on understanding the flow:
+  **Form → Route → Model → Database → View**
+* Use Laravel helpers
+* Errors are part of the process, debug them
+
+---
+Goal: Build it step-by-step. Don’t copy — understand.
+
 
 ## Notes for Students
 

@@ -15,6 +15,15 @@
         color: white;
         font-family: Arial, sans-serif;
     }
+    nav{
+        background-color:rgb(252, 248, 242);
+        padding: 10px;
+        color:#000000;
+        font-weight: bold;
+    }
+    a{
+        padding: 10px;
+    }
     </style>
 <body>
     <nav>

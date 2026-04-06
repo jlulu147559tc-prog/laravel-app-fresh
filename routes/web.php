@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Models\Ideas;
+use App\Models\Post;
 
 Route::view('/', 'welcome', [
     'greeting' => 'Hello, World!',
@@ -17,22 +20,29 @@ Route::view('/about', 'about');
 Route::view('/contact', 'contact');
 
 Route::get('/formtest', function(){
-    $emails = session()->get('$emails', []);
+    $posts = Post::all();
 
     return view('formtest',[
-        'emails' => $emails,
+        'posts' => $posts,
     ]);
 });
 
 Route::post('/formtest', function(){
-    $email = request('email');
-
-    session()->push('$emails', $email);
+    Post::create([
+        'description' => request('description'),
+    ]);
 
     return redirect('/formtest');
 });
 
-Route::get('/delete-emails', function(){
-    session()->forget('$emails');
+Route::delete('/formtest/{id}', function ($id) {
+    Post::findOrFail($id)->delete();
+
+    return redirect('/formtest');
+});
+
+Route::get('/delete', function(){
+    Post::truncate();  
+
     return redirect('/formtest');
 });
